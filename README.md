@@ -1,2 +1,2 @@
 # Cubethon
-https://racewilliams3.github.io/Cubethon/
+https://racewilliams3.github.io/CubethonPlus/
