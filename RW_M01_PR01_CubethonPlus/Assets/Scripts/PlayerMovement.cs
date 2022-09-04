@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool left = false;
     private bool right = false;
+    private bool forward = false;
     private bool jump = false;
     private bool canJump = true;
 
@@ -25,6 +26,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Collect input for left right and jump
+        if (Input.GetKey("w"))
+        {
+            forward = true;
+        } else
+        {
+            forward = false;
+        }
         if (Input.GetKey("d"))
         {
             left = true;
@@ -51,11 +59,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //constant movement forward
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
-
-
         //Check for movement flags and add force accordingly
+        if (forward == true)
+        {
+            rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        } 
+        
+
         if (left == true)
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);

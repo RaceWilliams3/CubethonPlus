@@ -11,6 +11,7 @@ public class PlayerCollision : MonoBehaviour
         if (collisionInfo.collider.tag == "Obstacle")
         {
             movement.enabled = false;
+            GetComponent<Rigidbody>().useGravity = false;
             FindObjectOfType<GameManager>().EndGame();
 
         }
